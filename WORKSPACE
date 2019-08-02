@@ -1,19 +1,23 @@
 workspace(name = "com_github_aputs_bazel_tools")
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
+
+## python3
 
 http_archive(
-    name = "rules_python",
-    sha256 = "dbc4786e038c6fb61f4899c3671b0ee4086b9c48a8ede6fbb430c1518b3b53ad",
-    strip_prefix = "rules_python-120590e2f2b66e5590bf4dc8ebef9c5338984775",
-    urls = ["https://github.com/bazelbuild/rules_python/archive/120590e2f2b66e5590bf4dc8ebef9c5338984775.tar.gz"],
+    name = "subpar",
+    sha256 = "34bb4dadd86bbdd3b5736952167e20a1a4c27ff739de11532c4ef77c7c6a68d9",
+    strip_prefix = "subpar-35bb9f0092f71ea56b742a520602da9b3638a24f",
+    urls = ["https://github.com/google/subpar/archive/35bb9f0092f71ea56b742a520602da9b3638a24f.tar.gz"],
 )
 
-load("@rules_python//python:pip.bzl", "pip_repositories")
+load("//python:pip.bzl", "setup_pip_dependencies")
+
+setup_pip_dependencies()
+
+load("@rules_python//python:pip.bzl", "pip_import", "pip_repositories")
 
 pip_repositories()
-
-load("@rules_python//python:pip.bzl", "pip_import")
 
 pip_import(
     name = "piptool_deps",
@@ -27,9 +31,32 @@ load(
 
 _piptool_install()
 
-http_archive(
-    name = "subpar",
-    sha256 = "34bb4dadd86bbdd3b5736952167e20a1a4c27ff739de11532c4ef77c7c6a68d9",
-    strip_prefix = "subpar-35bb9f0092f71ea56b742a520602da9b3638a24f",
-    urls = ["https://github.com/google/subpar/archive/35bb9f0092f71ea56b742a520602da9b3638a24f.tar.gz"],
+## runtime
+
+load("//runtime:deps.bzl", "setup_runtime_dependencies")
+
+setup_runtime_dependencies()
+
+load(
+    "@io_bazel_rules_docker//repositories:repositories.bzl",
+    container_repositories = "repositories",
 )
+
+container_repositories()
+
+load("@io_bazel_rules_docker//repositories:deps.bzl", container_deps = "deps")
+
+container_deps()
+
+register_toolchains("@io_bazel_rules_docker//toolchains/python:container_py_toolchain")
+
+load(
+    "@distroless//package_manager:package_manager.bzl",
+    "package_manager_repositories",
+)
+
+package_manager_repositories()
+
+load("//runtime:buster.bzl", "setup_package_bundle_dependencies")
+
+setup_package_bundle_dependencies()
