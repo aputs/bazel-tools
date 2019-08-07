@@ -25,11 +25,13 @@ load(
 setup_pip_dependencies()
 
 py3_pip_import(
-    name = "pip_deps",
+    name = "pip_py_deps",
     requirements = "<location to>:requirements.txt",
 )
 
-load("@pis_py_deps//:requirements.bzl", pis_pip_install = "pip_install")
+load("@pip_py_deps//:requirements.bzl", pip_pip_install = "pip_install")
+
+pip_pip_install()
 ```
 
 Test with:
