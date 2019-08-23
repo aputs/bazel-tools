@@ -1,0 +1,19 @@
+{
+  "telemetry.enableTelemetry": false,
+  "search.exclude": {
+      "**/bazel-*/**": true,
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/env": true,
+      "**/venv": true
+  },
+  "files.watcherExclude": {
+      "**/bazel-*/**": true,
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/env/**": true,
+      "**/venv/**": true,
+      "env-*": true
+  },
+}
