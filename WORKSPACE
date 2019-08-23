@@ -37,6 +37,14 @@ load("//runtime:deps.bzl", "setup_runtime_dependencies")
 
 setup_runtime_dependencies()
 
+load("//runtime/k8s:deps.bzl", "setup_k8s_dependencies")
+
+setup_k8s_dependencies()
+
+load("@containerregistry//:def.bzl", setup_containerregistry_repositories = "repositories")
+
+setup_containerregistry_repositories()
+
 load(
     "@io_bazel_rules_docker//repositories:repositories.bzl",
     container_repositories = "repositories",
