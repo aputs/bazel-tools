@@ -16,10 +16,6 @@ http_archive(
 load("@com_github_aputs_bazel_tools//runtime/k8s:deps.bzl", "setup_k8s_dependencies")
 
 setup_k8s_dependencies()
-
-load("@containerregistry//:def.bzl", setup_containerregistry_repositories = "repositories")
-
-setup_containerregistry_repositories()
 ```
 
 ```use @com_github_aputs_bazel_tools//runtime/k8s:resolver.par to replace rules_k8s default resolver```
