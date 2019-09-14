@@ -9,34 +9,33 @@ load("@package_bundle//file:packages.bzl", "packages")
     name = "python3" if (not mode) else mode[1:],
     base = "//runtime/images/cc" + mode,
     debs = [
-        packages["libbz2-1.0"],
-        packages["libc-bin"],
-        packages["libexpat1"],
-        packages["libffi6"],
-        packages["liblzma5"],
-        packages["libncursesw5"],
+        packages["dash"],
+        packages["zlib1g"],
+        packages["python3.7-minimal"],
         packages["libpython3.7-minimal"],
         packages["libpython3.7-stdlib"],
-        packages["libreadline7"],
+        packages["libexpat1"],
+        packages["libffi6"],
         packages["libsqlite3-0"],
-        packages["libssl1.1"],
-        packages["libtinfo5"],
-        packages["python3.7-minimal"],
-        packages["zlib1g"],
+
+        # packages["libbz2-1.0"],
+        # packages["liblzma5"],
+
+        # packages["libtinfo5"],
+        # packages["libncursesw5"]
+        # packages["libreadline7"],
     ],
     entrypoint = [
-        "/usr/bin/python3.7",
+        "/usr/bin/python3",
     ],
     env = {
         "PYTHONUNBUFFERED": "1",
     },
     symlinks = {
+        "/bin/sh": "/bin/dash",
         "/usr/bin/python": "/usr/bin/python3.7",
         "/usr/bin/python3": "/usr/bin/python3.7",
     },
-    tars = [
-        "@distroless//experimental/python2.7:ld_so_cache.tar",
-    ],
 ) for mode in [
     "",
     ":debug",
