@@ -9,6 +9,24 @@ def setup_k8s_dependencies():
         urls = ["https://github.com/c4urself/containerregistry/archive/c05873486625d452f7dc36ce718e1310a65cd2f1.tar.gz"],
     )
 
+    _maybe(
+        http_archive,
+        name = "com_github_yaml_pyyaml",
+        build_file_content = """
+# TODO fix for py2/py3
+py_library(
+    name = "yaml",
+    srcs = glob(["lib3/yaml/*.py"]),
+    imports = [
+        "lib3",
+    ],
+    visibility = ["//visibility:public"],
+)""",
+        sha256 = "d4154501a7081e7ca11120f3b0141d14e9c1c146364d62f2cf8efe7724390d66",
+        strip_prefix = "pyyaml-3.13",
+        urls = ["https://github.com/yaml/pyyaml/archive/3.13.zip"],
+    )
+
     # for containerregistry
     _maybe(
         http_archive,
