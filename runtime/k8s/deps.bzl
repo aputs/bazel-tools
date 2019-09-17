@@ -4,9 +4,9 @@ def setup_k8s_dependencies():
     _maybe(
         http_archive,
         name = "containerregistry",
-        sha256 = "44e6db83cdf3514ad5c2c099803eaa53acadec9e12dc0735ae836063d7011c5e",
-        strip_prefix = "containerregistry-c05873486625d452f7dc36ce718e1310a65cd2f1",
-        urls = ["https://github.com/c4urself/containerregistry/archive/c05873486625d452f7dc36ce718e1310a65cd2f1.tar.gz"],
+        sha256 = "ae64548f4e59515ced48f649f82b5e0ef17343e0386f43da99acc081a7610703",
+        strip_prefix = "containerregistry-f087a10466e8eb1161857e7c98ef77362dbb49b4",
+        urls = ["https://github.com/aputs/containerregistry/archive/f087a10466e8eb1161857e7c98ef77362dbb49b4.tar.gz"],
     )
 
     _maybe(
