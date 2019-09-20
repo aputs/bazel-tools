@@ -13,7 +13,7 @@ def setup_k8s_dependencies():
         http_archive,
         name = "com_github_yaml_pyyaml",
         build_file_content = """
-# TODO fix for py2/py3
+# forced py3
 py_library(
     name = "yaml",
     srcs = glob(["lib3/yaml/*.py"]),
@@ -22,9 +22,9 @@ py_library(
     ],
     visibility = ["//visibility:public"],
 )""",
-        sha256 = "d4154501a7081e7ca11120f3b0141d14e9c1c146364d62f2cf8efe7724390d66",
-        strip_prefix = "pyyaml-3.13",
-        urls = ["https://github.com/yaml/pyyaml/archive/3.13.zip"],
+        sha256 = "e9df8412ddabc9c21b4437ee138875b95ebb32c25f07f962439e16005152e00e",
+        strip_prefix = "pyyaml-5.1.2",
+        urls = ["https://github.com/yaml/pyyaml/archive/5.1.2.zip"],
     )
 
     # for containerregistry

@@ -84,7 +84,7 @@ def Resolve(input, string_to_digest):
             return walk_string(o)
         return o
 
-    return yaml.dump_all(map(walk, yaml.load_all(input)))
+    return yaml.dump_all(map(walk, yaml.load_all(input, Loader=yaml.FullLoader)))
 
 
 def StringToDigest(string, overrides, transport):
