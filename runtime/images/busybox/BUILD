@@ -13,4 +13,5 @@ genrule(
            done; \
            cd ..; \
            tar -cf $@ busybox" % " ".join(BUSYBOX_COMMANDS),
+    visibility = ["//visibility:public"],
 )
