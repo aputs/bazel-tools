@@ -12,6 +12,8 @@ load("@package_bundle//file:packages.bzl", "packages")
         packages["dash"],
         packages["zlib1g"],
         packages["python3.7-minimal"],
+        packages["python3-distutils"],
+        packages["python3-setuptools"],
         packages["libpython3.7-minimal"],
         packages["libpython3.7-stdlib"],
         packages["libexpat1"],

@@ -53,6 +53,8 @@ PACKAGE_BUNDLE_PACKAGES = [
     "openssl",
     "python2.7-minimal",
     "python3.7-minimal",
+    "python3-distutils",
+    "python3-setuptools",
     "python3-ldap3",
     "python3-psycopg2",
     "readline-common",
