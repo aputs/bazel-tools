@@ -14,7 +14,6 @@
 """Import pip requirements into Bazel."""
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-load("@bazel_tools//tools/python:utils.bzl", "expand_pyversion_template")
 
 def _pip_import_impl(repository_ctx):
     """Core implementation of pip_import."""
