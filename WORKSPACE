@@ -1,6 +1,7 @@
 workspace(name = "com_github_aputs_bazel_tools")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
+
 load("@com_github_aputs_bazel_tools//runtime:deps.bzl", "setup_runtime_dependencies")
 
 setup_runtime_dependencies()
