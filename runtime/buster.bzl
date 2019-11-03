@@ -1,8 +1,6 @@
-load(
-    "@distroless//package_manager:dpkg.bzl",
-    "dpkg_list",
-    "dpkg_src",
-)
+load("//:maybe.bzl", "maybe")
+load("@distroless//package_manager:package_manager.bzl", "package_manager_repositories")
+load("@distroless//package_manager:dpkg.bzl", "dpkg_list", "dpkg_src")
 
 PACKAGE_BUNDLE_PACKAGES = [
     "base-files",
@@ -64,7 +62,9 @@ PACKAGE_BUNDLE_PACKAGES = [
 ]
 
 def setup_package_bundle_dependencies():
-    _maybe(
+    package_manager_repositories()
+
+    maybe(
         dpkg_src,
         name = "debian_buster",
         arch = "amd64",
@@ -74,7 +74,7 @@ def setup_package_bundle_dependencies():
         url = "https://snapshot.debian.org/archive",
     )
 
-    _maybe(
+    maybe(
         dpkg_src,
         name = "debian_buster_security",
         package_prefix = "https://snapshot.debian.org/archive/debian-security/20190730T203253Z/",
@@ -82,7 +82,7 @@ def setup_package_bundle_dependencies():
         sha256 = "9ced04f06c2b4e1611d716927b19630c78fc7db604ba2cecebbb379cf6ba318b",
     )
 
-    _maybe(
+    maybe(
         dpkg_list,
         name = "package_bundle",
         packages = PACKAGE_BUNDLE_PACKAGES,
@@ -91,7 +91,3 @@ def setup_package_bundle_dependencies():
             "@debian_buster//file:Packages.json",
         ],
     )
-
-def _maybe(repo_rule, name, **kwargs):
-    if name not in native.existing_rules():
-        repo_rule(name = name, **kwargs)
