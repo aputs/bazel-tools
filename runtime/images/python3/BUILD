@@ -10,6 +10,7 @@ load("@package_bundle//file:packages.bzl", "packages")
     base = "//runtime/images/cc" + mode,
     debs = [
         packages["dash"],
+        packages["dumb-init"],
         packages["zlib1g"],
         packages["python3.7-minimal"],
         packages["python3-distutils"],

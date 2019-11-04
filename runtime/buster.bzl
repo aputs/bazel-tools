@@ -6,6 +6,7 @@ PACKAGE_BUNDLE_PACKAGES = [
     "base-files",
     "ca-certificates",
     "dash",
+    "dumb-init",
     "libbz2-1.0",
     "libc-bin",
     "libc6",
@@ -69,17 +70,17 @@ def setup_package_bundle_dependencies():
         name = "debian_buster",
         arch = "amd64",
         distro = "buster",
-        sha256 = "bd1bed6b19bf173d60ac130edee47087203e873f3b0981f5987f77a91a2cba85",
-        snapshot = "20190731T041823Z",
+        sha256 = "ca19e4187523f4b087a2e7aaa2662c6a0b46dc81ff2f3dd44d9c5d95df0df212",
+        snapshot = "20191104T030405Z",
         url = "https://snapshot.debian.org/archive",
     )
 
     maybe(
         dpkg_src,
         name = "debian_buster_security",
-        package_prefix = "https://snapshot.debian.org/archive/debian-security/20190730T203253Z/",
-        packages_gz_url = "https://snapshot.debian.org/archive/debian-security/20190730T203253Z/dists/buster/updates/main/binary-amd64/Packages.gz",
-        sha256 = "9ced04f06c2b4e1611d716927b19630c78fc7db604ba2cecebbb379cf6ba318b",
+        package_prefix = "https://snapshot.debian.org/archive/debian-security/20191104T030405Z/",
+        packages_gz_url = "https://snapshot.debian.org/archive/debian-security/20191104T030405Z/dists/buster/updates/main/binary-amd64/Packages.gz",
+        sha256 = "40b58aa0aae0e7bd0ed2314a09b58c0a392d8231286a5e3839d8b2a7d1bbba4e",
     )
 
     maybe(
