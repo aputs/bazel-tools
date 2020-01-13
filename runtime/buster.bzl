@@ -19,6 +19,7 @@ PACKAGE_BUNDLE_PACKAGES = [
     "libgnutls30",
     "libgomp1",
     "libgssapi-krb5-2",
+    "libglib2.0-0",
     "libhogweed4",
     "libidn11",
     "libidn2-0",
