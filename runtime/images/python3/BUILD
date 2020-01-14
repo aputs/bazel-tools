@@ -23,7 +23,9 @@ load("@package_bundle//file:packages.bzl", "packages")
         packages["libsqlite3-0"],
         packages["libglib2.0-0"],
 
-        # packages["libbz2-1.0"],
+        packages["libpcre3"],
+
+        packages["libbz2-1.0"],
         # packages["liblzma5"],
 
         # packages["libtinfo5"],

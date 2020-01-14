@@ -35,6 +35,7 @@ PACKAGE_BUNDLE_PACKAGES = [
     "libodbc1",
     "libp11-kit0",
     "libpq5",
+    "libpcre3",
     "libpython2.7-minimal",
     "libpython2.7-stdlib",
     "libpython3.7-minimal",
