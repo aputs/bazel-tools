@@ -7,6 +7,7 @@ PACKAGE_BUNDLE_PACKAGES = [
     "ca-certificates",
     "dash",
     "dumb-init",
+    "gzip",
     "libbz2-1.0",
     "libc-bin",
     "libc6",

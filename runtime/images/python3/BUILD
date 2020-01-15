@@ -26,6 +26,7 @@ load("@package_bundle//file:packages.bzl", "packages")
         packages["libpcre3"],
 
         packages["libbz2-1.0"],
+        packages["gzip"],
         # packages["liblzma5"],
 
         # packages["libtinfo5"],
