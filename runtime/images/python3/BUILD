@@ -26,7 +26,7 @@ load("@package_bundle//file:packages.bzl", "packages")
         packages["libbz2-1.0"],
         packages["liblzma5"],
         packages["libtinfo5"],
-        packages["libncursesw5"]
+        packages["libncursesw5"],
         packages["libreadline7"],
         packages["gzip"],
     ],
